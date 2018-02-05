@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "test": "gulp",
-    "start": "node main.js"
+    "start": "tsc main.ts --outDir dist && cd dist && node main.js"
   },
   "author": "",
   "license": "ISC",
