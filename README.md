@@ -8,6 +8,11 @@ tbd
 
 Currently consists of a node API to hopefully manage a list of surveys.
 
+## Prerequisites
+
+Node is required to run this app.
+
+
 ## Run instructions
 
 ```
