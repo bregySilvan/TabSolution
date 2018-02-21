@@ -19,25 +19,22 @@ import * as express from 'express';
          * working so far. This function will change when we start to add more
          * API endpoints */
         let router = express.Router();
-        // placeholder route handler
-        router.get('/', (req, res, next) => {
-            res.send(
-                `<html>
-                  <head>
-                    <title>Tutorial: HelloWorld!!</title>
-                  </head>
-                  <body>
-                    <h1>HelloWorld Tutorial!!</h1>
-            
-                <p>
-                  The current data and time is: 
-                  <strong>`+new Date()+`</strong>
-                </p>    
-            
-                  </body>
-                </html>`
-                )
+        
+        //http://10.1.34.106:3000/login?name=silvan&password=bregy
+        router.post('/login', (req, res, next) => {
+          console.log('/login is requested');
+          
+          console.log('name: ' + req.query.name);
+          console.log('password: ' + req.query.password);
+          
+          var success = req.query.name === 'silvan' && req.query.password === 'bregy';
+
+          res.json({success: success});
+          res.end();
+          next();
+
         });
+
         this.express.use('/', router);
       }
     }
