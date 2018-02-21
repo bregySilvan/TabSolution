@@ -1,0 +1,21 @@
+{
+  "name": "schule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "gulp",
+    "start": "tsc main.ts --outDir dist && cd dist && node main.js",
+    "server": "tsc server/main.ts --outDir server/dist && cd server/dist && node main.js",
+    "client": "tsc client/main.ts --outDir client/dist && cd client/dist && node main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^9.4.0",
+    "express": "^4.16.2",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^3.2.4",
+    "typescript": "^2.6.2"
+  }
+}
