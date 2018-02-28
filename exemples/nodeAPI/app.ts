@@ -24,7 +24,7 @@ import * as express from 'express';
             res.send(
                 `<html>
                   <head>
-                    <title>Tutorial: HelloWorld!!</title>
+                    <title>Tutorial: This is just a small test!!</title>
                   </head>
                   <body>
                     <h1>HelloWorld Tutorial!!</h1>
