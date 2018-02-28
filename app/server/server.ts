@@ -19,14 +19,14 @@ import * as express from 'express';
          * working so far. This function will change when we start to add more
          * API endpoints */
         let router = express.Router();
-        
+
         //http://10.1.34.106:3000/login?name=silvan&password=bregy
         router.get('/login', (req, res, next) => {
           console.log('/login is requested');
-          
+
           console.log(`name: ${req.query.name}`);
           console.log(`password: ${req.query.password}\n`);
-          
+
           var success = req.query.name === 'silvan' && req.query.password === 'bregy';
           res.status(200);
           res.json({success: success});

@@ -1,0 +1,29 @@
+{
+  "name": "tabsolution-rest-api",
+  "version": "1.0.0",
+  "description": "Simple Rest API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node main.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bregySilvan/TabSolution.git"
+  },
+  "keywords": [
+    "tabsolution",
+    "rest"
+  ],
+  "author": "tabsolution-master-thieves",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bregySilvan/TabSolution/issues"
+  },
+  "homepage": "https://github.com/bregySilvan/TabSolution#readme",
+  "dependencies": {
+    "http": "0.0.0",
+    "ip": "^1.1.5",
+    "superagent": "^3.8.2"
+  }
+}
