@@ -1,17 +1,17 @@
-[
-    {
+{
+    "ID1": {
         "title": "Fairy Tail",
         "anzahlFolgen": 278,
         "rating": 10
     },
-    {
+    "ID2": {
         "title": "Sword Art Online",
         "anzahlFolgen": 49,
         "rating": 9
     },
-    {
+    "ID3": {
         "title": "Fullmetal Alchemist: Brotherhood",
         "anzahlFolgen": 64,
         "rating": 8
     }
-]
+}
