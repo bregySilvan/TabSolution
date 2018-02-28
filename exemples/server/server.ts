@@ -1,6 +1,7 @@
 var express = require('express');
-var app = express();
 var fs = require("fs");
+
+var app = express();
 
 app.get('/data', function (req, res) {
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
@@ -20,9 +21,6 @@ app.get('/title', function (req, res) {
 })
 
 var server = app.listen(8888, function () {
-
     let port = server.address().port
-
-    console.log("Go to localhost:" + port)
-
+    console.log("Runnint express at: " + port)
 })
