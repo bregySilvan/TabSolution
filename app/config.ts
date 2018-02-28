@@ -1,5 +1,5 @@
 
-export const defaultPort: number = 3000;
+export const defaultPort: number = 34543;
 
 export interface ILocationMap {
     login: string;

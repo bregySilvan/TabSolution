@@ -11,5 +11,5 @@ import * as config  from '../config';
 
     //function to note that Express is listening
     function onListening(): void {
-      console.log(`Listening on port `+ port);
+      console.log(`Listening on port ${port}`);
     }
