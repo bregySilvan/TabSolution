@@ -1,6 +1,8 @@
 import * as http from 'http';
-    import App from './server';
-    const port =  3000;
+import App from './server';
+import * as config  from '../config';
+
+    const port =  config.defaultPort;
     App.set('port', port);
     //create a server and pass our Express app to it.
     const server = http.createServer(App);
@@ -9,5 +11,5 @@ import * as http from 'http';
 
     //function to note that Express is listening
     function onListening(): void {
-      console.log(`Listening on port `+port);
+      console.log(`Listening on port `+ port);
     }
