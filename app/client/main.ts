@@ -2,8 +2,9 @@ import { Client } from './client';
 import * as config from '../config';
 import { ILoginPayload } from '../payloads';
 import { ILoginResponse } from '../responses';
+import * as localAddress from 'ip';
 
-let host = '10.1.34.106';
+let host = localAddress.address();
 let port = config.defaultPort;
 let payload: ILoginPayload = {
     name: 'silvan',
