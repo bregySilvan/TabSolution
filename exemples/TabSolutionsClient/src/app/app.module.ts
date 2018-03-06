@@ -3,10 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { MainScreenComponent } from './main-screen/main-screen.component';
+import { AddNewComponent } from './add-new/add-new.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MainScreenComponent,
+    AddNewComponent
   ],
   imports: [
     BrowserModule,
