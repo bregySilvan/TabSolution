@@ -1,5 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+
+
+interface ServerResponse {
+  title: string;
+  anzahlFolgen;
+  rating;
+  
+  ID1; 
+}
+
 
 @Component({
   selector: 'app-root',
@@ -14,10 +24,18 @@ export class AppComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
-    this.http.get('https://localhost:8888/title/2').subscribe(data => {
-      console.log(data);
-    });
+    this.http.get<ServerResponse>('http://localhost:8888/board').subscribe(data => {
+      console.log("Filmtitle: "+ data.title.toString());
+      console.log("Number of series: "+ data.anzahlFolgen.toString());
+      console.log("rating: "+ data.ID1.toString());
+      //console.log(data);
+      
+      //console.log(data.ID1); 
+  }
+  );
   }
 
 }
+
