@@ -29,16 +29,17 @@ app.get('/title/:id', function (req, res) {
 
 app.get('/board/:id', function (req, res) {
     let ID:string = req.params.id;
-    ID = "ID" + ID;
+    let IDNew = "ID" + ID;
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
         let daten = JSON.parse( data );
         let obj;
 
         try {
             obj = {
-                title: daten[ID].title,
-                anzahlFolgen: daten[ID].anzahlFolgen, 
-                rating: daten[ID].rating
+                id: ID,
+                title: daten[IDNew].title,
+                anzahlFolgen: daten[IDNew].anzahlFolgen, 
+                rating: daten[IDNew].rating
             }
         }
         catch(err) {
