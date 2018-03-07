@@ -57,6 +57,31 @@ app.get('/board/:id', function (req, res) {
     });
 })
 
+save("ID4", "Kono Subarashii", "20", "10")
+
+function save(Id, Title, AnzahlFolgen, Rating) {
+    fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
+        let daten = JSON.parse( data );
+        let obj = {
+                title: Title,
+                anzahlFolgen: AnzahlFolgen,
+                rating: Rating
+        }
+
+        daten[Id] = obj;
+        console.log(daten)
+        let dataString:string = JSON.stringify(daten);
+
+        fs.writeFile(__dirname + "/" + "daten.json", dataString, function(err) {
+            if(err) {
+                return console.log(err);
+            }
+        
+            console.log("The file was saved!");
+        }); 
+    });
+}
+
 
 var server = app.listen(8888, function () {
     let port = server.address().port
