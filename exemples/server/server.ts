@@ -85,5 +85,5 @@ function save(Id, Title, AnzahlFolgen, Rating) {
 
 var server = app.listen(8888, function () {
     let port = server.address().port
-    console.log("Runnint express at: " + port)
+    console.log("Runnint express at: localhost:" + port)
 })
