@@ -1,4 +1,4 @@
-/*var express = require('express');
+var express = require('express');
 var fs = require("fs");
 
 var app = express();
@@ -11,19 +11,24 @@ app.get('/data', function (req, res) {
 
 app.get('/title/:id', function (req, res) {
     let ID:string = req.params.id;
-    ID = "ID" + ID;
+    let IDNew = "ID" + ID;
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
         let daten = JSON.parse( data );
         let title:string;
+        let obj;
 
         try {
-            title = daten[ID].title;
+            obj = {
+                title: daten[IDNew].title,
+            }
         }
         catch(err) {
-            title = "ERROR ID ist nicht vorhanden :("
+            obj = "ERROR ID ist nicht vorhanden :("
         }
+        
+        let dataString:string = JSON.stringify(obj);
 
-        res.end( '{"' + title + '"}' );
+        res.end(dataString);
     });
 })
 
@@ -57,4 +62,3 @@ var server = app.listen(8888, function () {
     let port = server.address().port
     console.log("Runnint express at: " + port)
 })
-*/
