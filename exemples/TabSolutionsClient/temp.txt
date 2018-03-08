@@ -1,3 +1,16 @@
+<div *ngIf="currentBoard !== null">
+    <div style="text-align:center">
+  
+    <div id = "title">{{ currentBoard.title }}</div>
+
+    <div id = "description">{{currentBoard.description}}</div>
+  
+    <div id = "image"><img src = "{{ currentBoard.imageURL }}" width="50%"/></div>
+  
+  </div>
+  <div *ngIf="currentBoard === null">no board set for now</div>
+
+
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 

@@ -1,19 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { MainScreenComponent } from './main-screen/main-screen.component';
+import { BoardComponent } from './board/board.component';
+import { SettingsComponent } from './settings/settings.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainScreenComponent
+    BoardComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {
+          path:'board', 
+          component: BoardComponent 
+      }, 
+      {
+        path:'settings', 
+        component: SettingsComponent 
+    },
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
