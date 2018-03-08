@@ -4,13 +4,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 interface IBoard {
   title: string;
-  anzahlFolgen;
-  rating;
+  description;
+  imageURL;
   ID2; 
 }
-
-
-
 
 @Component({
   selector: 'app-root',
@@ -25,13 +22,13 @@ export class AppComponent implements OnInit {
   
 
   currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
-  requestURLBoard: string = 'http://localhost:8888/board/1';
+  requestURLBoard: string = 'http://localhost:8888/board/2';
   /*requestURLData: string = 'http://localhost:8888/data';
   requestURLTitle: string = 'http://localhost:8888/title/1';*/
 
 
   constructor(private http: HttpClient){
-    this.http.get('http://localhost:8888/board/1').subscribe((data:IBoard) => {
+    this.http.get(this.requestURLBoard).subscribe((data:IBoard) => {
     this.currentBoard = data;
       }
     );

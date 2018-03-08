@@ -1,17 +1,17 @@
 {
     "ID1": {
         "title": "Fairy Tail",
-        "anzahlFolgen": 278,
-        "rating": 10
+        "description": "Just another monday morning",
+        "imageURL": "https://www.hevs.ch/img/logo-hes-so-valais.png"
     },
     "ID2": {
         "title": "Sword Art Online",
-        "anzahlFolgen": 49,
-        "rating": 9
+        "description": "just another tuesday morning",
+        "imageURL": "https://upload.wikimedia.org/wikipedia/de/thumb/c/ca/Harrypotter-series-logo.svg/1200px-Harrypotter-series-logo.svg.png"
     },
     "ID3": {
         "title": "Fullmetal Alchemist: Brotherhood",
-        "anzahlFolgen": 64,
-        "rating": 8
+        "description": "Heftigä schitt",
+        "imageURL": "https://pbs.twimg.com/profile_images/697675802956144640/qy_NOqXT_400x400.jpg"
     }
 }

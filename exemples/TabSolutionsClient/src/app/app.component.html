@@ -1,16 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div *ngIf="currentBoard !== null">
   <div style="text-align:center">
-  </div>
-  <h2>{{ currentBoard.title }}</h2>
-  <ul>
-    <li>
+
+  <div id = "title">{{ currentBoard.title }}</div>
+
       <!--<a href="app/add-new/add-new.component.html">Add</a>-->
-      <a>{{currentBoard.anzahlFolgen}}</a>
-    </li>
-    <li>
-      <a>{{currentBoard.rating}}</a>
-    </li>
-  </ul>
+      <div id = "description">{{currentBoard.description}}</div>
+
+      <div id = "image"><img src = "{{currentBoard.imageURL}}" width="50%"/></div>
+
 </div>
 <div *ngIf="currentBoard === null">no board set for now</div>
