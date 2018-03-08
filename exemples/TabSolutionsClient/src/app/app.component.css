@@ -1,0 +1,33 @@
+#nav
+{
+    background-color: blueviolet;
+    font-size: 150%;
+    margin: 5%; 
+    padding: 2%; 
+
+
+}   
+ /* unvisited link */
+a:link {
+    color: red;
+}
+
+/* visited link */
+a:visited {
+    color: yellowgreen;
+}
+
+/* mouse over link */
+a:hover {
+    color: hotpink;
+}
+
+/* selected link */
+a:active {
+    color: blue;
+}
+
+#content
+{
+    background-color: yellowgreen; 
+};

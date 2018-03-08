@@ -2,8 +2,10 @@
     {{ title }}
 </h1>
 
-<a routerLink="/board">Board</a>
-<a routerLink="/settings">Settings</a>
-
-<br>
+<div id = "nav">
+    <a routerLink="/board">Board</a>
+    <a routerLink="/settings">Settings</a>
+</div>
+<div id = "content">
 <router-outlet></router-outlet>
+</div>
