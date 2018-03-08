@@ -1,13 +1,3 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div *ngIf="currentBoard !== null">
-  <div style="text-align:center">
-
-  <div id = "title">{{ currentBoard.title }}</div>
-
-      <!--<a href="app/add-new/add-new.component.html">Add</a>-->
-      <div id = "description">{{currentBoard.description}}</div>
-
-      <div id = "image"><img src = "{{currentBoard.imageURL}}" width="50%"/></div>
-
-</div>
-<div *ngIf="currentBoard === null">no board set for now</div>
+<router-outlet>
+<a href="localhost:4200/main-screen.component.html">HansWasHeiri</a>
+</router-outlet>
