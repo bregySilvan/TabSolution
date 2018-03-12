@@ -1,7 +1,11 @@
 
-var express = require('express');
-var fs = require("fs");
+import * as express from 'express';
+import * as fs from 'fs-extra';
+import * as config from '../../config';
+
+var dataFile = 'var/daten.json';
 var app = express();
+var defaultPort = config.defaultPort;
 
 // Add headers
 app.use(function (req, res, next) {
@@ -24,15 +28,17 @@ app.use(function (req, res, next) {
 });
 
 app.get('/data', function (req, res) {
-    fs.readFile(__dirname + "/" + "daten.json", 'utf8', function (err, data) {
+    fs.readFile(dataFile, 'utf8', function (err, data) {
         res.end(data);
     });
 });
+
 app.get('/title/:id', function (req, res) {
-    var ID = req.params.id;
+    var ID = req.query.id;
     ID = "ID" + ID;
-    fs.readFile(__dirname + "/" + "daten.json", 'utf8', function (err, data) {
+    fs.readFile(dataFile, 'utf8', function (err, data) {
         var daten = JSON.parse(data);
+        console.log(daten);
         var obj;
         try {
             obj = {
@@ -40,16 +46,17 @@ app.get('/title/:id', function (req, res) {
             };
         }
         catch (err) {
-            obj = "ERROR ID ist nicht vorhanden :(";
+            obj = "ERROR: Titel nicht vorhanden :(";
         }
         var titleString = JSON.stringify(obj);
         res.end(titleString);
     });
 });
+
 app.get('/board/:id', function (req, res) {
-    var ID = req.params.id;
+    var ID = req.query.id;
     ID = "ID" + ID;
-    fs.readFile(__dirname + "/" + "daten.json", 'utf8', function (err, data) {
+    fs.readFile(dataFile, 'utf8', function (err, data) {
         var daten = JSON.parse(data);
         var obj;
         try {
@@ -60,14 +67,14 @@ app.get('/board/:id', function (req, res) {
             };
         }
         catch (err) {
-            obj = "ERROR ID ist nicht vorhanden :(";
+            obj = "ERROR: board nicht vorhanden :(";
         }
         var dataString = JSON.stringify(obj);
         res.end(dataString);
     });
 });
-var server = app.listen(8888, function () {
-    var port = server.address().port;
-    console.log("Runnint express at: " + port);
-});
 
+var server = app.listen(defaultPort, function () {
+    var port = server.address().port;
+    console.log(`Runnint express on port: ${port}`);
+});
