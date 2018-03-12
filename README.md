@@ -1,6 +1,6 @@
 
 # Travis
-Travis CI is a Continious Integration tool. It is used to test code as soon as it's uploaded. It is possible to connect with your github account and the choosen repository.
+Travis CI is a Continious Integration tool. It is used to test and automaticly deploying your apps. code as soon as it's uploaded. It is possible to connect with your github account and the choosen repository.
 
 ##  Status
 - not working, need of at the moment restricted rights
