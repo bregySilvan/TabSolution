@@ -1,17 +1,17 @@
 {
     "ID1": {
         "title": "Fairy Tail",
-        "anzahlFolgen": 278,
-        "rating": 10
+        "description": "Very lovely film. More likely for womens",
+        "imageURL": "http://tinyhouseblog.com/wp-content/uploads/2008/11/uncle-jons-cabin.jpg"
     },
     "ID2": {
         "title": "Sword Art Online",
-        "anzahlFolgen": 49,
-        "rating": 9
+        "description": "is about a magical sword.",
+        "imageURL": "https://i.pinimg.com/236x/08/0b/4b/080b4b0a7c383937a6f84e7cbc01e56d--brick-detail-brick-exteriors.jpg"
     },
     "ID3": {
         "title": "Fullmetal Alchemist: Brotherhood",
-        "anzahlFolgen": 64,
-        "rating": 8
+        "description": "hardcore film for hardcore guys",
+        "imageURL": "https://lh3.googleusercontent.com/AC679nh03kj8gAuMVoN84xSuvwm0nHehWBOtXCZ4oq1PBMM8mCuYZPhzvJtEtP-G2Y0=h310-rw"
     }
 }

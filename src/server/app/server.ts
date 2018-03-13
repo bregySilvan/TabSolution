@@ -2,6 +2,7 @@
 import * as express from 'express';
 import * as fs from 'fs-extra';
 import * as config from '../../config';
+import { IBoard } from '../../interfaces';
 
 var dataFile = 'var/daten.json';
 var app = express();
@@ -44,12 +45,12 @@ app.get('/title/:id', function (req, res) {
             obj = {
                 title: daten[ID].title,
             };
+            var titleString = JSON.stringify(obj);
+            res.end(titleString);
         }
         catch (err) {
-            obj = "ERROR: Titel nicht vorhanden :(";
+            res.end('ERROR: Titel nicht vorhanden :(');
         }
-        var titleString = JSON.stringify(obj);
-        res.end(titleString);
     });
 });
 
@@ -58,19 +59,20 @@ app.get('/board/:id', function (req, res) {
     ID = "ID" + ID;
     fs.readFile(dataFile, 'utf8', function (err, data) {
         var daten = JSON.parse(data);
-        var obj;
+        var board: IBoard;
         try {
-            obj = {
+            board = {
                 title: daten[ID].title,
-                anzahlFolgen: daten[ID].anzahlFolgen,
-                rating: daten[ID].rating
+                description: daten[ID].description,
+                imageURL: daten[ID].imageURL
             };
+            var dataString = JSON.stringify(board);
+            res.end(dataString);
         }
         catch (err) {
-            obj = "ERROR: board nicht vorhanden :(";
+            res.end('ERROR: board nicht vorhanden :(');
         }
-        var dataString = JSON.stringify(obj);
-        res.end(dataString);
+        
     });
 });
 

@@ -1,0 +1,20 @@
+#title
+{
+    font-size: 140%;
+    background-color: teal;
+    padding: 2%;
+}
+#description
+{
+    background-color: silver;
+    padding: 2%; 
+}
+#image
+{
+    background-color: sandybrown; 
+    padding: 2%,
+}
+#settings
+{
+    background-color: blue; 
+}
