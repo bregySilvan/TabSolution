@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+<<<<<<< HEAD
 
 interface IBoard {
   title: string;
@@ -7,6 +8,10 @@ interface IBoard {
   imageURL;
 }
 
+=======
+import * as config from '../../../../config';
+import { IBoard } from '../../../../interfaces';
+>>>>>>> master
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -16,6 +21,7 @@ export class BoardComponent implements OnInit {
 
   currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
   
+<<<<<<< HEAD
   requestURLHost: string = 'http://localhost';
   requestURLPort: string = ':8888';
   requestURLTag: string = '/board/';
@@ -29,6 +35,17 @@ export class BoardComponent implements OnInit {
     this.http.get(this.requestURLBoard).subscribe((data:IBoard) => {
     this.currentBoard = data;
     console.log(data.title);
+=======
+  requestTarget: string = 'localhost';
+  requestPort: number = config.defaultPort;
+  requestLocation: string = '/board/id';
+  requestPayload = '2';
+  requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}?id=${this.requestPayload}`
+
+  constructor(private http: HttpClient) {
+    this.http.get(this.requestURLBoard).subscribe((data: IBoard) => {
+    this.currentBoard = data;
+>>>>>>> master
       }
     );
   }

@@ -1,11 +1,19 @@
 <div *ngIf="currentBoard !== null">
   <div style="text-align:center">
 
+<<<<<<< HEAD
   <div id = "title">{{ currentBoard.title }}</div>
 
   <div id = "description">{{currentBoard.description}}</div>
   
   <div id = "image"><img src = "{{ currentBoard.imageURL }}" width="50%"/></div>
+=======
+  <div id="title">{{ currentBoard.title }}</div>
+
+  <div id="description">{{currentBoard.description}}</div>
+  
+  <div id="image"><img src="{{currentBoard.imageURL}}" width="50%"/></div>
+>>>>>>> master
 
 </div>
 <div *ngIf="currentBoard === null">no board set for now</div>
