@@ -34,6 +34,11 @@ app.get('/data', function (req, res) {
     });
 });
 
+app.post('/boards/:id', function (req, res) {
+    console.log(req.query);
+    res.end('board is set..');
+});
+
 app.get('/title/:id', function (req, res) {
     var ID = req.query.id;
     ID = "ID" + ID;
