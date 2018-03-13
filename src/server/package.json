@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node app/server.ts"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/bregySilvan/TabSolution#readme",
   "dependencies": {
-    "express": "^4.16.2",
-    "fs-extra": "^5.0.0"
+    "express": "^4.16.2"
   }
 }
