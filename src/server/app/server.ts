@@ -2,7 +2,7 @@
 import * as express from 'express';
 import * as fs from 'fs-extra';
 import * as config from '../../config';
-import { IBoard } from '../../interfaces';
+import { IBoard, IBoardInfo } from '../../interfaces';
 
 var dataFile = 'var/daten.json';
 var app = express();
@@ -73,6 +73,22 @@ app.get('/board/:id', function (req, res) {
             res.end('ERROR: board nicht vorhanden :(');
         }
         
+    });
+});
+
+app.get('/boardlist', function (req, res) {
+    fs.readFile(dataFile, 'utf8', function (err, data) {
+        var daten = JSON.parse(data);
+        var ids = Object.keys(daten);
+        var boardInfos: IBoardInfo[] = [];
+        ids.forEach((id) => {
+            var boardInfo: IBoardInfo = {
+                id: id.substring(2),
+                title: daten[id]
+            };
+            boardInfos.push(boardInfo);
+        });
+        res.end(JSON.stringify(boardInfos));
     });
 });
 
