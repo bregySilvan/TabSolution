@@ -1,12 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import * as config from '../../../../config';
-interface IBoard {
-  title: string;
-  description;
-  imageURL;
-}
-
+import { IBoard } from '../../../../interfaces';
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
@@ -23,9 +18,8 @@ export class BoardComponent implements OnInit {
   requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}?id=${this.requestPayload}`
 
   constructor(private http: HttpClient) {
-    this.http.get(this.requestURLBoard).subscribe((data:IBoard) => {
+    this.http.get(this.requestURLBoard).subscribe((data: IBoard) => {
     this.currentBoard = data;
-    console.log(data.title);
       }
     );
   }
