@@ -5,7 +5,6 @@ interface IBoard {
   title: string;
   description;
   imageURL;
-  ID2; 
 }
 
 @Component({
@@ -16,7 +15,12 @@ interface IBoard {
 export class BoardComponent implements OnInit {
 
   currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
-  requestURLBoard: string = 'http://localhost:8888/board/2';
+  
+  requestURLHost: string = 'http://localhost';
+  requestURLPort: string = ':8888';
+  requestURLTag: string = '/board/';
+  requestURLID:string = '2';
+  requestURLBoard: string = this.requestURLHost+this.requestURLPort+this.requestURLTag+this.requestURLID;
   /*requestURLData: string = 'http://localhost:8888/data';
   requestURLTitle: string = 'http://localhost:8888/title/1';*/
 

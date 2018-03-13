@@ -6,10 +6,16 @@
     padding: 2%; 
 
 
+}
+#nav.login
+{
+    text-align: right;
 }   
  /* unvisited link */
 a:link {
     color: red;
+    text-decoration: none;
+    padding: 5%;
 }
 
 /* visited link */
@@ -20,15 +26,12 @@ a:visited {
 /* mouse over link */
 a:hover {
     color: hotpink;
+    padding: 5%;
+    background-color: blue;
+    
 }
 
 /* selected link */
 a:active {
     color: blue;
 }
-
-#content
-{
-    font-size: 130%;
-    background-color: yellowgreen; 
-};

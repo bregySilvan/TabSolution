@@ -24,8 +24,12 @@ import { SettingsComponent } from './settings/settings.component';
       }, 
       {
         path:'settings', 
-        component: SettingsComponent 
+        component: SettingsComponent
     },
+    {
+        path:'login', 
+        component: SettingsComponent 
+  }
     ])
   ],
   providers: [],
