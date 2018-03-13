@@ -1,31 +1,30 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-interface IBoard {
-  title: string;
-  description;
-  imageURL;
-}
+import * as config from '../../../../config';
+import { IBoard } from '../../../../interfaces';
+import { IBoardInfo } from '../../../../interfaces';
+
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent implements OnInit {
-  currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
-  id = "ID2";
-  requestURLHost: string = 'http://localhost';
-  requestURLPort: string = ':8888';
-  requestURLTag: string = '/title/';
-  requestURLID:string = '1';
-  requestURLBoard: string = this.requestURLHost+this.requestURLPort+this.requestURLTag+this.requestURLID;
-  length: string; 
+
+  requestTarget: string = 'localhost';
+  requestPort: number = config.defaultPort;
+  requestLocation: string = '/boardlist';
+  requestPayload = '2';
+  requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}`
+  boardInfos: IBoardInfo[] = [];
   
 
   constructor(private http: HttpClient) { 
-  this.http.get(this.requestURLBoard).subscribe((data:IBoard) => {
-    this.currentBoard = data;
 
+    
+    this.http.get(this.requestURLBoard).subscribe((data: IBoardInfo[]) => {
+      this.boardInfos = data;
       }
     );
   }

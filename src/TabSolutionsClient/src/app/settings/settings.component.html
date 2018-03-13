@@ -2,11 +2,8 @@
   <h3>Kreuzen Sie die gewünschten Zutaten an:</h3> 
   <fieldset>
     <ul>
-      <li> 
-        <label>
-          <input type="checkbox" name="zutat" value="salami"/>
-          {{currentBoard.title}}
-        </label>
+      <li *ngFor = "let boardInfo of boardInfos"> 
+          {{boardInfo.title.title}}
       </li>
     </ul> 
   </fieldset> 
