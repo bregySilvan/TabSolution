@@ -1,11 +1,13 @@
-<form> 
-  <h3>Kreuzen Sie die gewünschten Zutaten an:</h3> 
-  <fieldset>
-    <ul>
-      <li *ngFor = "let boardInfo of boardInfos"> 
-          {{boardInfo.title.title}}
-      </li>
-    </ul> 
-  </fieldset> 
-</form>
-
+<div id = "titles">
+  <form> 
+    <h3>Which board do you want to show?</h3> 
+      <ul>
+        <li *ngFor = "let boardInfo of boardInfos"> 
+          <label>
+            <input type="checkbox" name="{{boardInfo.title.title}}   " value="{{boardInfo.title.title}}   ">
+              {{boardInfo.title.title}}   
+        </label>
+        </li>
+      </ul> 
+  </form>
+</div>
