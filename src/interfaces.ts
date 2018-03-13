@@ -3,3 +3,7 @@ export interface IBoard {
   description;
   imageURL;
 }
+export interface IBoardInfo {
+  id: string;
+  title: string;
+}
