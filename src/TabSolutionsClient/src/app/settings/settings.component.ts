@@ -5,6 +5,8 @@ import { IBoard } from '../../../../interfaces';
 import { httpPostOptions } from '../../../../config';
 import { catchError, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 
 @Component({
@@ -14,7 +16,6 @@ import { Observable } from 'rxjs/Observable';
 })
 export class SettingsComponent implements OnInit {
 
-
   board: IBoard = {
     title: 'sword master',
     description: 'my first description',
@@ -22,15 +23,27 @@ export class SettingsComponent implements OnInit {
   };
 
   requestHost = 'localhost';
-  requestPort = '8888';
-  requestLocation = '/boards/id';
+  requestPort = '34534';
+  requestLocation = 'boards';
   requestTargetId = '1';
-  requestUrlBoard = `http://${this.requestHost}:${this.requestPort}${this.requestLocation}?id=${this.requestTargetId}`;
+  requestUrlBoard = `http://${this.requestHost}:${this.requestPort}/${this.requestLocation}/${this.requestTargetId}`;
 
   constructor(private http: HttpClient) {
+    //this.http.post(this.requestUrlBoard, this.board, httpPostOptions)
+      //.catch((error:any) => Observable.throw(error.json().error))
+    //.pipe(catchError(this.handleBoardPostError('error: 'this.error , this.board)));
 
-    this.http.post(this.requestUrlBoard, this.board, httpPostOptions)
-      .pipe(catchError(this.handleBoardPostError('error on requesting board', this.board)));
+    this.create(this.board);
+  }
+
+  create(board: IBoard): Observable<any> {
+    return this.http
+      .post(this.requestUrlBoard, this.board, httpPostOptions)
+      .map(response => {
+        if (response.status === 200) console.log("status 200 OK");
+        return response;
+      })
+      .catch((error: any) => console.log(error));
   }
 
   ngOnInit() {

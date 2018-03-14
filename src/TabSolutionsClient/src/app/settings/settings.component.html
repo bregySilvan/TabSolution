@@ -1,3 +1,6 @@
 
   <h3>Settings und so</h3>
 
+  <input [value]="board.title" (input)="board.title = $event.target.value">
+
+  <p>titel: {{board.title}}</p>
