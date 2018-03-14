@@ -93,7 +93,8 @@ app.get('/boardlist', function (req, res) {
         });
         res.end(JSON.stringify(boardInfos));
     });
-    
+});
+
 app.post('/title/:id', function (req, res, next) {
     console.log(req.body.title);
 });
