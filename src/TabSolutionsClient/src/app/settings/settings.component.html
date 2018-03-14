@@ -4,7 +4,7 @@
       <ul>
         <li *ngFor = "let boardInfo of boardInfos"> 
           <label>
-            <input type="checkbox" id = "{{boardInfo.id}}" (click)="setShit()">
+            <input type="checkbox" id = "{{boardInfo.id}}" (click)="addSelectedToArray(boardInfo.id)">
            {{boardInfo.title.title}} {{boardInfo.id}}</label><br/>
         </li>
       </ul>
@@ -12,5 +12,5 @@
 </div>
 
 
-<button (click)="setShit()">Show it</button>
+<button (click)="giveItOut()">Show it</button>
 {{ hansueli }}
