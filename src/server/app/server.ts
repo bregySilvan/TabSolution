@@ -8,6 +8,9 @@ var dataFile = 'var/daten.json';
 var app = express();
 var defaultPort = config.defaultPort;
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json()); // for parsing application/json
+
 // Add headers
 app.use(function (req, res, next) {
 
@@ -90,6 +93,9 @@ app.get('/boardlist', function (req, res) {
         });
         res.end(JSON.stringify(boardInfos));
     });
+    
+app.post('/title/:id', function (req, res, next) {
+    console.log(req.body.title);
 });
 
 var server = app.listen(defaultPort, function () {
