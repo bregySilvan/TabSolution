@@ -1,13 +1,16 @@
 <div id = "titles">
-  <form> 
+  <form name="selectBoard">
     <h3>Which board do you want to show?</h3> 
       <ul>
         <li *ngFor = "let boardInfo of boardInfos"> 
           <label>
-            <input type="checkbox" name="{{boardInfo.title.title}}   " value="{{boardInfo.title.title}}   ">
-              {{boardInfo.title.title}}   
-        </label>
+            <input type="checkbox" id = "{{boardInfo.id}}" (click)="setShit()">
+           {{boardInfo.title.title}} {{boardInfo.id}}</label><br/>
         </li>
-      </ul> 
+      </ul>
   </form>
 </div>
+
+
+<button (click)="setShit()">Show it</button>
+{{ hansueli }}

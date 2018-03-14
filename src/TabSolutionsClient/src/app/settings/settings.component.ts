@@ -12,12 +12,19 @@ import { IBoardInfo } from '../../../../interfaces';
 })
 export class SettingsComponent implements OnInit {
 
+  setShit():void{
+    this.hansueli = "fack da shit"; 
+    console.log("hans");
+
+    }
   requestTarget: string = 'localhost';
   requestPort: number = config.defaultPort;
   requestLocation: string = '/boardlist';
   requestPayload = '2';
   requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}`
   boardInfos: IBoardInfo[] = [];
+  hansueli:string = "nothing"; 
+
   
 
   constructor(private http: HttpClient) { 
@@ -25,10 +32,13 @@ export class SettingsComponent implements OnInit {
     
     this.http.get(this.requestURLBoard).subscribe((data: IBoardInfo[]) => {
       this.boardInfos = data;
+      //this.setShit();
       }
     );
   }
   ngOnInit() {
-  }
+  }  
+
 
 }
+

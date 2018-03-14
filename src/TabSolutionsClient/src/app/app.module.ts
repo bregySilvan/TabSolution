@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
+import { FormsModule } from '@angular/forms';
+import { MatCheckboxModule,MatButtonModule } from '@angular/material';
+
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { SettingsComponent } from './settings/settings.component';
@@ -13,7 +16,12 @@ import { SettingsComponent } from './settings/settings.component';
     AppComponent,
     BoardComponent,
     SettingsComponent
+    
   ],
+  bootstrap:    [ 
+    AppComponent 
+  ],
+
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -29,10 +37,9 @@ import { SettingsComponent } from './settings/settings.component';
     {
         path:'login', 
         component: SettingsComponent 
-  }
-    ])
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    }
+  ])
+  ]
+  
 })
 export class AppModule { }
