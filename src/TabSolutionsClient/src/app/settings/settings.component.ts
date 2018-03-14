@@ -4,6 +4,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import * as config from '../../../../config';
 import { IBoard } from '../../../../interfaces';
 import { IBoardInfo } from '../../../../interfaces';
+import { BoardService } from '../services/board-service';
 
 @Component({
   selector: 'app-settings',
@@ -19,7 +20,8 @@ export class SettingsComponent implements OnInit {
   requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}`
   boardInfos: IBoardInfo[] = [];
   hansueli:string = ""; 
-  selectedBoards:string[] = [];
+  selectedBoards: string[] = [];
+  lastSelectedBoardId: string = '';
   index: number;
 
   
@@ -29,6 +31,7 @@ export class SettingsComponent implements OnInit {
     if(!this.selectedBoards.includes(id))
     {
       this.selectedBoards.push(id);
+      this.lastSelectedBoardId = id;
       for (let i of this.selectedBoards) {
         //console.log(i); // "4", "5", "6"
      }
@@ -51,7 +54,8 @@ export class SettingsComponent implements OnInit {
     }
 
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient,
+              private boardService: BoardService) { 
 
     
     this.http.get(this.requestURLBoard).subscribe((data: IBoardInfo[]) => {
@@ -61,7 +65,14 @@ export class SettingsComponent implements OnInit {
     );
   }
   ngOnInit() {
-  }  
+
+  } 
+  
+  public onBoardSelected() {
+    this.boardService.setCurrentBoardId(this.lastSelectedBoardId);
+  }
+
+
 
 
 }

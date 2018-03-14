@@ -9,6 +9,7 @@ import { MatCheckboxModule,MatButtonModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { SettingsComponent } from './settings/settings.component';
+import { BoardService } from './services';
 
 
 @NgModule({
@@ -16,8 +17,8 @@ import { SettingsComponent } from './settings/settings.component';
     AppComponent,
     BoardComponent,
     SettingsComponent
-    
   ],
+  providers: [BoardService],
   bootstrap:    [ 
     AppComponent 
   ],
