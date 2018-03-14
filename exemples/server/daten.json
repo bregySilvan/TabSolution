@@ -1,17 +1,22 @@
 {
-    "ID1": {
+    "1": {
         "title": "Fairy Tail",
-        "anzahlFolgen": 278,
-        "rating": 10
+        "description": "Beschreibung 1",
+        "imageURL": "bild1.jpg"
     },
-    "ID2": {
+    "2": {
         "title": "Sword Art Online",
-        "anzahlFolgen": 49,
-        "rating": 9
+        "description": "Beschreibung 2",
+        "imageURL": "bild2.jpg"
     },
-    "ID3": {
+    "3": {
         "title": "Fullmetal Alchemist: Brotherhood",
-        "anzahlFolgen": 64,
-        "rating": 8
+        "description": "Beschreibung 3",
+        "imageURL": "bild3.jpg"
+    },
+    "4": {
+        "title": "Kono Subarashii",
+        "description": "Beschreibung 4",
+        "imageURL": "bild4.jpg"
     }
 }

@@ -11,7 +11,6 @@ app.get('/data', function (req, res) {
 
 app.get('/title/:id', function (req, res) {
     let ID:string = req.params.id;
-    let IDNew = "ID" + ID;
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
         let daten = JSON.parse( data );
         let title:string;
@@ -19,7 +18,7 @@ app.get('/title/:id', function (req, res) {
 
         try {
             obj = {
-                title: daten[IDNew].title,
+                title: daten[ID].title,
             }
         }
         catch(err) {
@@ -34,7 +33,6 @@ app.get('/title/:id', function (req, res) {
 
 app.get('/board/:id', function (req, res) {
     let ID:string = req.params.id;
-    let IDNew = "ID" + ID;
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
         let daten = JSON.parse( data );
         let obj;
@@ -42,9 +40,9 @@ app.get('/board/:id', function (req, res) {
         try {
             obj = {
                 id: ID,
-                title: daten[IDNew].title,
-                anzahlFolgen: daten[IDNew].anzahlFolgen, 
-                rating: daten[IDNew].rating
+                title: daten[ID].title,
+                description: daten[ID].description, 
+                imageURL: daten[ID].imageURL
             }
         }
         catch(err) {
@@ -57,15 +55,15 @@ app.get('/board/:id', function (req, res) {
     });
 })
 
-save("ID4", "Kono Subarashii", "20", "10")
+//save("ID4", "Kono Subarashii", "20", "10")
 
-function save(Id, Title, AnzahlFolgen, Rating) {
+function save(Id, Title, Description, ImageURL) {
     fs.readFile( __dirname + "/" + "daten.json", 'utf8', function (err, data) {
         let daten = JSON.parse( data );
         let obj = {
                 title: Title,
-                anzahlFolgen: AnzahlFolgen,
-                rating: Rating
+                description: Description,
+                imageURL: ImageURL
         }
 
         daten[Id] = obj;
