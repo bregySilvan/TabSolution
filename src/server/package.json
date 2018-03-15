@@ -1,0 +1,29 @@
+{
+  "name": "server",
+  "version": "0.0.1",
+  "description": "TabSolution restAPI Server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node app/server.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bregySilvan/TabSolution.git"
+  },
+  "keywords": [
+    "server",
+    "rest",
+    "restFul",
+    "api"
+  ],
+  "author": "BFO Inf4 2017/18 Serverteam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bregySilvan/TabSolution/issues"
+  },
+  "homepage": "https://github.com/bregySilvan/TabSolution#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
