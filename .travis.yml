@@ -1,9 +1,27 @@
 language: node_js  
 
-run
-{
-  cd exemples/server/server.js
-  npm build
-}
+node_js:
+ - "7"
 
+addons:
+ chrome: stable
+
+before_script:
+  - npm install
+  - npm build
+
+after_failure:
+  - cat /TabSolution/travisBugs.log
+  
+before_deploy:
+
+deploy:
+
+branches:
+  only:
+  - travis
+  
+script:
+  - build: tsc server.ts
+  - npm test
 
