@@ -1,10 +1,9 @@
 language: node_js  
-sudo: false
 
 run
 {
-  "cd exemples/server/server.js"
-  "npm build"
+  cd exemples/server/server.js
+  npm build
 }
 
 
