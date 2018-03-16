@@ -22,8 +22,8 @@ branches:
   only:
   - travis
   
-script:
-  - npm test
+#script:
+#  - npm test
   
 build: 
  - tsc server.ts
