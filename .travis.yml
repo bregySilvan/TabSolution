@@ -23,6 +23,8 @@ branches:
   - travis
   
 script:
-  - build: tsc server.ts
   - npm test
+  
+build: 
+ - tsc server.ts
 
