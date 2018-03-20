@@ -3,7 +3,7 @@ The simpel tabbed solution. We provide a nice and smart service
 for having info screens at your shop, flat or even a large
 screen on the freeway.
 
-### Status
+## Status
 
 Currently consists of a Node Server with an Angular 2 Client.
 The client uses only a few of the provided API locations for now
@@ -25,14 +25,13 @@ npm start
 ### Client
 
 ```
-cd exemples/nodeAPI
+cd src/client
 npm install
 npm start
-open http://localhost:4200 in webbrowser
+-  open http://localhost:4200 in webbrowser
 ```
 
-
-### Current API provided by server
+## Current API provided by server
 
 
 | request type | location | payload | response |
