@@ -7,24 +7,15 @@ addons:
  chrome: stable
 
 before_script:
-  - cd exemples/server
+  - cd src/server
   - npm install
-  - npm build
 
 after_failure:
   - cat /TabSolution/travisBugs.log
-  
-before_deploy:
-
-deploy:
 
 branches:
   only:
   - travis
   
 script:
-  - return true
-  
-build: 
- - tsc server.ts
-
+ - npm build
