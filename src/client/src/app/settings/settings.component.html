@@ -3,7 +3,7 @@
     <h3>Which board do you want to show?</h3> 
       <ul>
         <li *ngFor = "let boardInfo of boardInfos"> 
-          <label>
+          <label class = "container">
             <input type="checkbox" id = "{{boardInfo.id}}" (click)="addSelectedToArray(boardInfo.id)">
            {{boardInfo.title.title}} {{boardInfo.id}}</label><br/>
         </li>
