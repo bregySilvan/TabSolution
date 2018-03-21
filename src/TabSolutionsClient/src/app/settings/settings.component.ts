@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import * as config from '../../../../config';
 import { IBoardInfo, IBoard } from '../../../../interfaces';
 import { BoardService } from '../services/board-service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-settings',
@@ -18,7 +19,7 @@ export class SettingsComponent {
   boardInfos: IBoardInfo[] = [];
   selectedBoards: string[] = [];
   lastSelectedBoardId: string = '';
-
+  boardLocation: string = 'board';
   addSelectedToArray(id: string): void {
     if (!this.selectedBoards.includes(id)) {
       this.selectedBoards.push(id);
@@ -30,6 +31,7 @@ export class SettingsComponent {
   }
 
   constructor(private http: HttpClient,
+    private router: Router,
     private boardService: BoardService) {
 
     this.http.get(this.requestURLBoard).subscribe((boardInfos: IBoardInfo[]) => {
@@ -39,6 +41,9 @@ export class SettingsComponent {
 
   public onBoardSelected() {
     this.boardService.setCurrentBoardId(this.lastSelectedBoardId);
+    if(this.lastSelectedBoardId) {
+      this.router.navigateByUrl(this.boardLocation);
+    }
   }
 
 
