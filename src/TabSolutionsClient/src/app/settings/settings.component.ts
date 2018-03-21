@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import * as config from '../../../../config';
-import { IBoard } from '../../../../interfaces';
-import { IBoardInfo } from '../../../../interfaces';
+import { IBoardInfo, IBoard } from '../../../../interfaces';
 import { BoardService } from '../services/board-service';
 
 @Component({
@@ -11,63 +9,34 @@ import { BoardService } from '../services/board-service';
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent implements OnInit {
-  
+export class SettingsComponent {
+
   requestTarget: string = 'localhost';
   requestPort: number = config.defaultPort;
   requestLocation: string = '/boardlist';
-  requestPayload = '2';
   requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}`
   boardInfos: IBoardInfo[] = [];
-  hansueli:string = ""; 
   selectedBoards: string[] = [];
   lastSelectedBoardId: string = '';
-  index: number;
 
-  
-  addSelectedToArray(id:string):void
-  {
-    this.hansueli = ""; 
-    if(!this.selectedBoards.includes(id))
-    {
+  addSelectedToArray(id: string): void {
+    if (!this.selectedBoards.includes(id)) {
       this.selectedBoards.push(id);
       this.lastSelectedBoardId = id;
-      for (let i of this.selectedBoards) {
-        //console.log(i); // "4", "5", "6"
-     }
+    } else {
+      let index = this.selectedBoards.indexOf(id);
+      this.selectedBoards.splice(index);
     }
-    else
-    {
-      this.index = this.selectedBoards.indexOf(id);
-      this.selectedBoards.splice(this.index);
-      for (let i of this.selectedBoards) {
-        //console.log(i); // "4", "5", "6"
-     }
-    }
-      
-  }   
-  giveItOut():void
-    { 
-      for (let i of this.selectedBoards) {  
-        this.hansueli += i+", "; 
-     }
-    }
-
+  }
 
   constructor(private http: HttpClient,
-              private boardService: BoardService) { 
+    private boardService: BoardService) {
 
-    
-    this.http.get(this.requestURLBoard).subscribe((data: IBoardInfo[]) => {
-      this.boardInfos = data;
-      //this.setShit();
-      }
-    );
+    this.http.get(this.requestURLBoard).subscribe((boardInfos: IBoardInfo[]) => {
+      this.boardInfos = boardInfos;
+    });
   }
-  ngOnInit() {
 
-  } 
-  
   public onBoardSelected() {
     this.boardService.setCurrentBoardId(this.lastSelectedBoardId);
   }
