@@ -11,7 +11,6 @@ before_script:
   - npm install
 
 after_failure:
-  - cat /TabSolution/travisbugs.log
 
 branches:
   only:
