@@ -1,6 +1,9 @@
 
+
+
   <h3>Settings und so</h3>
-
-  <input [value]="board.title" (input)="board.title = $event.target.value">
-
+  <form (ngSubmit)="onSubmit()" [formGroup]="myform">
+    <input [value]="board.title" (input)="board.title = $event.target.value">
+    <button type="submit" class="btn btn-primary" >Submit</button>
+  </form>
   <p>titel: {{board.title}}</p>

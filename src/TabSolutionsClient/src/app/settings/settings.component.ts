@@ -7,6 +7,7 @@ import { catchError, retry } from 'rxjs/operators';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 
 
 @Component({
@@ -30,9 +31,33 @@ export class SettingsComponent implements OnInit {
 
   }
 
+  myform: FormGroup;
+  title: FormControl;
+
+
   ngOnInit() {
-    this.postTitle();
+    this.createFormControls();
+    this.createForm();
   }
+
+  createFormControls() {
+    this.title = new FormControl('', Validators.required);
+  }
+
+  createForm() {
+    this.myform = new FormGroup({
+      name: new FormGroup({
+        firstName: this.title,
+      }),
+    });
+  }
+
+  onSubmit() {
+    if (this.myform.valid) {    
+    console.log('posting.......')
+    //this.postTitle();
+    }
+  };
 
   postTitle() {
     console.log('posting');
