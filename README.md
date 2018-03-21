@@ -1,28 +1,3 @@
-
-# Travis
-Travis CI is a Continious Integration tool. It is used to test and automaticly deploying your apps. code as soon as it's uploaded. It is possible to connect with your github account and the choosen repository.
-
-##  Status
-- not working, need of at the moment restricted rights
-
-
-## Setup
-
-https://travis-ci.org/
-
--	Sign-Up with Github
--	Choose TabSolution
--	Create travis.yml (via bashConsole with «vim .travis.yml»)
-
-## Next Steps
-- learn what Gulp is
-
-
-
-
-
-
-
 # TabSolution
 The simpel tabbed solution. We provide a nice and smart service
 for having info screens at your shop, flat or even a large
