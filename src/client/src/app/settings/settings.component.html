@@ -1,14 +1,7 @@
-<form> 
-  <h3>Kreuzen Sie die gewünschten Zutaten an:</h3> 
-  <fieldset>
-    <ul>
-      <li> 
-        <label>
-          <input type="checkbox" name="zutat" value="salami"/>
-          {{currentBoard.title}}
-        </label>
-      </li>
-    </ul> 
-  </fieldset> 
-</form>
 
+
+
+  <h3>Settings und so</h3>
+    <input [value]="board.title" (input)="board.title = $event.target.value">
+    <button (click)="onSubmit()" >Submit</button>
+  <p>titel: {{board.title}}</p>
