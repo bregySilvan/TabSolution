@@ -10,13 +10,15 @@ import { AppComponent } from './app.component';
 import { BoardComponent } from './board/board.component';
 import { SettingsComponent } from './settings/settings.component';
 import { BoardService } from './services';
+import { PostLogicComponent } from './post-logic/post-logic.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    SettingsComponent
+    SettingsComponent,
+    PostLogicComponent
   ],
   providers: [BoardService],
   bootstrap:    [ 

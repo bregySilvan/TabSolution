@@ -1,0 +1,6 @@
+
+
+  <h3>Settings</h3>
+    <input [value]="board.title" (input)="board.title = $event.target.value">
+    <button (click)="onSubmit()" >Submit</button>
+  <p>titel: {{board.title}}</p>
