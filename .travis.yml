@@ -15,7 +15,7 @@ after_failure:
 
 branches:
   only:
-  - travis
+  - master
   
 script:
  - npm run build
