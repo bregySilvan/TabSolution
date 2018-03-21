@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { IBoard } from '../../../../interfaces';
@@ -14,7 +14,7 @@ import { ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators } 
   templateUrl: './post-logic.component.html',
   styleUrls: ['./post-logic.component.css']
 })
-export class PostLogicComponent implements OnInit {
+export class PostLogicComponent {
 
   board = {
     title: 'sword master'
@@ -35,28 +35,17 @@ export class PostLogicComponent implements OnInit {
   title: FormControl;
 
 
-  ngOnInit() {
-
-  }
-
   onSubmit() { 
     this.postBoard();
   };
 
   postBoard() {
     console.log('posting');
-    this.http.post(this.requestUrlBoard, this.board)
-    .subscribe(
-      data => console.log(data),
-      err => console.error(err),
-      () => console.log('yay')
-    );
+    this.http.post(this.requestUrlBoard, this.board);
      this.titletest = this.board.title;
    }
 
   handleBoardPostError(err: any, sentBoard: any) {
-    console.error(err);
-    console.log(sentBoard);
     return Observable.create({});
   }
 
