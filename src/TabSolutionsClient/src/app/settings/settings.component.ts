@@ -26,6 +26,7 @@ export class SettingsComponent implements OnInit {
   requestLocation = 'title';
   requestTargetId = '1';
   requestUrlBoard = `http://${this.requestHost}:${this.requestPort}/${this.requestLocation}/${this.requestTargetId}`;
+  titletest = "";
 
   constructor(private http: HttpClient) {
 
@@ -36,30 +37,14 @@ export class SettingsComponent implements OnInit {
 
 
   ngOnInit() {
-    this.createFormControls();
-    this.createForm();
+
   }
 
-  createFormControls() {
-    this.title = new FormControl('', Validators.required);
-  }
-
-  createForm() {
-    this.myform = new FormGroup({
-      name: new FormGroup({
-        firstName: this.title,
-      }),
-    });
-  }
-
-  onSubmit() {
-    if (this.myform.valid) {    
-    console.log('posting.......')
-    //this.postTitle();
-    }
+  onSubmit() { 
+    this.postBoard();
   };
 
-  postTitle() {
+  postBoard() {
     console.log('posting');
     this.http.post(this.requestUrlBoard, this.board)
     .subscribe(
@@ -67,6 +52,7 @@ export class SettingsComponent implements OnInit {
       err => console.error(err),
       () => console.log('yay')
     );
+     this.titletest = this.board.title;
    }
 
   handleBoardPostError(err: any, sentBoard: any) {
