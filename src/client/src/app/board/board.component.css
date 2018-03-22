@@ -1,0 +1,25 @@
+#title
+{
+    font-size: 160%;
+    font-family: Impact;
+    background: linear-gradient(to bottom right,#333,rgb(100, 100, 100)); 
+    color: rgb(241, 229, 229);
+    padding: 2%;
+    border-radius: 10px 0 10px 0;
+}
+#description
+{
+    background-color: rgb(241, 229, 229);
+    padding: 2%; 
+}
+#image
+{
+    background-color:  #333;
+    padding: 2%;
+    border-radius: 10px;
+
+}
+#settings
+{
+    background-color: #333; 
+}
