@@ -96,3 +96,13 @@ var server = app.listen(defaultPort, function () {
     var port = server.address().port;
     console.log(`Runnint express on port: ${port}`);
 });
+
+app.post('/board/:id', function (req, res, next) 
+{
+    var IDFromSubmit = req.query.id;
+    var titleFromSubmit = req.query.title;
+    var descriptionFromSubmit = req.query.description;
+    var imageURLFromSubmit = req.query.imageURL;
+    save(IDFromSubmit, titleFromSubmit, descriptionFromSubmit, imageURLFromSubmit)
+
+});
