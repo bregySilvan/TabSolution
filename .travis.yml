@@ -1,0 +1,21 @@
+language: node_js  
+
+node_js:
+ - "7.10.1"
+
+addons:
+ chrome: stable
+
+before_script:
+  - cd src/server
+  - npm install
+
+after_failure:
+  -  cat /home/travis/builds/bregySilvan/TabSolution/npm-debug.log
+
+branches:
+  only:
+  - master
+  
+script:
+ - npm run build
