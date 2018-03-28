@@ -32,5 +32,6 @@
     "angular2": "^2.0.0-beta.21",
     "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
+
   }
 }

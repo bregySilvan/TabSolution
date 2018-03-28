@@ -1,14 +1,17 @@
-<form> 
-  <h3>Kreuzen Sie die gewünschten Zutaten an:</h3> 
-  <fieldset>
-    <ul>
-      <li> 
-        <label>
-          <input type="checkbox" name="zutat" value="salami"/>
-          {{currentBoard.title}}
-        </label>
-      </li>
-    </ul> 
-  </fieldset> 
-</form>
+<div id = "titles">
+  <form name="selectBoard">
+    <h3>Which board do you want to show?</h3> 
+      <ul>
+        <li *ngFor = "let boardInfo of boardInfos"> 
+          <label class = "container">
+            <input type="checkbox" id = "{{boardInfo.id}}" (click)="addSelectedToArray(boardInfo.id)">
+           {{boardInfo.title.title}} {{boardInfo.id}}</label><br/>
+        </li>
+      </ul>
+  </form>
+</div>
+
+<button (click)="onBoardSelected()">show last selected board</button>
+
+<post-logic></post-logic>
 

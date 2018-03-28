@@ -1,35 +1,53 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import * as config from '../../../../config';
+import { IBoardInfo, IBoard } from '../../../../interfaces';
+import { BoardService } from '../services/board-service';
+import { Router } from '@angular/router';
 
-interface IBoard {
-  title: string;
-  description;
-  imageURL;
-}
 @Component({
   selector: 'app-settings',
   templateUrl: './settings.component.html',
   styleUrls: ['./settings.component.css']
 })
-export class SettingsComponent implements OnInit {
-  currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
-  id = "ID2";
-  requestURLHost: string = 'http://localhost';
-  requestURLPort: string = ':8888';
-  requestURLTag: string = '/title/';
-  requestURLID:string = '1';
-  requestURLBoard: string = this.requestURLHost+this.requestURLPort+this.requestURLTag+this.requestURLID;
-  length: string; 
-  
+export class SettingsComponent {
 
-  constructor(private http: HttpClient) { 
-  this.http.get(this.requestURLBoard).subscribe((data:IBoard) => {
-    this.currentBoard = data;
+  requestTarget: string = 'localhost';
+  requestPort: number = config.defaultPort;
+  requestLocation: string = '/boardlist';
+  requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}`
+  boardInfos: IBoardInfo[] = [];
+  selectedBoards: string[] = [];
+  lastSelectedBoardId: string = '';
+  boardLocation: string = 'board';
+  addSelectedToArray(id: string): void {
+    if (!this.selectedBoards.includes(id)) {
+      this.selectedBoards.push(id);
+      this.lastSelectedBoardId = id;
+    } else {
+      let index = this.selectedBoards.indexOf(id);
+      this.selectedBoards.splice(index);
+    }
+  }
 
-      }
-    );
+  constructor(private http: HttpClient,
+    private router: Router,
+    private boardService: BoardService) {
+
+    this.http.get(this.requestURLBoard).subscribe((boardInfos: IBoardInfo[]) => {
+      this.boardInfos = boardInfos;
+    });
   }
-  ngOnInit() {
+
+  public onBoardSelected() {
+    this.boardService.setCurrentBoardId(this.lastSelectedBoardId);
+    if(this.lastSelectedBoardId) {
+      this.router.navigateByUrl(this.boardLocation);
+    }
   }
+
+
+
 
 }
+

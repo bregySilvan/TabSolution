@@ -1,30 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import * as config from '../../../../config';
 import { IBoard } from '../../../../interfaces';
+import { BoardService } from '../services/board-service';
+import { Observable } from 'rxjs/Observable';
+
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.css']
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent {
+  currentBoard: IBoard = null;
 
-  currentBoard: IBoard = null; //new board with the attributes from the interface IBoard
-  
-  requestTarget: string = 'localhost';
-  requestPort: number = config.defaultPort;
-  requestLocation: string = '/board/id';
-  requestPayload = '2';
-  requestURLBoard: string = `http://${this.requestTarget}:${this.requestPort}${this.requestLocation}?id=${this.requestPayload}`
+  constructor(private http: HttpClient,
+    private boardService: BoardService) {
 
-  constructor(private http: HttpClient) {
-    this.http.get(this.requestURLBoard).subscribe((data: IBoard) => {
-    this.currentBoard = data;
-      }
-    );
+    this.boardService.getCurrentBoard().subscribe((board: IBoard) => {
+      this.currentBoard = board;
+    });
+
   }
 
-  ngOnInit() {
-  }
 
 }
