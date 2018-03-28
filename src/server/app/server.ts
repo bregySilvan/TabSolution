@@ -34,9 +34,8 @@ app.get('/data', function (req, res) {
     });
 });
 
-app.get('/title/:id', function (req, res) {
-    var ID = req.query.id;
-    ID = "ID" + ID;
+app.get('/title', function (req, res) {
+    var ID = req.query;
     fs.readFile(dataFile, 'utf8', function (err, data) {
         var daten = JSON.parse(data);
         console.log(daten);
@@ -54,20 +53,26 @@ app.get('/title/:id', function (req, res) {
     });
 });
 
-app.get('/board/:id', function (req, res) {
-    var ID = req.query.id;
-    ID = "ID" + ID;
+app.get('/board', function (req, res) {
+    //var idArray = [1,2];
+    var idArray = req.query;
     fs.readFile(dataFile, 'utf8', function (err, data) {
         var daten = JSON.parse(data);
         var board: IBoard;
+        var dataArray = [];
         try {
-            board = {
-                title: daten[ID].title,
-                description: daten[ID].description,
-                imageURL: daten[ID].imageURL
-            };
-            var dataString = JSON.stringify(board);
-            res.end(dataString);
+            for(var x = 0; x < idArray.length; x++) {
+                let id = idArray[x];
+                board = {
+                    title: daten[id].title,
+                    description: daten[id].description,
+                    imageURL: daten[id].imageURL
+                };
+                var dataString = JSON.stringify(board);
+                dataArray.push(dataString)
+            }
+
+            res.end(dataArray);
         }
         catch (err) {
             res.end('ERROR: board nicht vorhanden :(');
