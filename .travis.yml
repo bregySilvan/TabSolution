@@ -19,7 +19,7 @@ after_failure:
 
 branches:
   only:
-  - master
+  - \#45-travis-experimental-configuration
   
 script:
  - npm start
