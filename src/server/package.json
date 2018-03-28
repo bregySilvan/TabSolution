@@ -30,6 +30,9 @@
   },
   "devDependencies": {
     "angular2": "^2.0.0-beta.21",
+    "karma": "^2.0.0",
+    "karma-firefox-launcher": "^1.1.0",
+    "karma-jasmine": "^1.1.1",
     "ts-node": "^5.0.1",
     "typescript": "^2.7.2"
   }
