@@ -10,12 +10,17 @@ before_script:
   - cd src/server
   - npm install
 
+before_install:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
 after_failure:
-  -  cat /home/travis/builds/bregySilvan/TabSolution/npm-debug.log
+  - cat /home/travis/builds/bregySilvan/TabSolution/npm-debug.log
 
 branches:
   only:
-  - master
+  - \#45-travis-experimental-configuration
   
 script:
- - npm run build
+ - npm start
+ - src/server/node_modules/karma/bin/karma start karma.conf.js --single-run
