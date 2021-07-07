@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "allowUnreachableCode": false,
+        "lib": ["es2015"],
+        "noLib": false
+    },
+
+    "include": [
+    "**/*.ts"
+    ],
+
+    "exclude": [
+    "node_modules",
+    "dist"
+    ]
+}
